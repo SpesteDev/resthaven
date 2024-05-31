@@ -6,13 +6,36 @@
  A util package developed for Discord.js users 🎉
 
 <a href="https://www.npmjs.com/package/speste-djs"><img src="https://img.shields.io/npm/v/speste-djs.svg?maxAge=3600" alt="npm version" /></a>
-<a href="https://www.npmjs.com/package/discord.js"><img src="https://img.shields.io/npm/dt/speste-djs.svg?maxAge=3600" alt="npm downloads" /></a>
+<a href="https://www.npmjs.com/package/speste-djs"><img src="https://img.shields.io/npm/dt/speste-djs.svg?maxAge=3600" alt="npm downloads" /></a>
 
 
 Installation
 
 ```sh
 npm i speste-djs
+```
+
+Defines
+
+```sh
+const {
+SpesteDB,
+ProLogs, ProEmbed,
+ConvertTurkishChars, TDKGlossary, ValidChecker, Random,
+viewFile, ms,
+convertMemberToInteraction,
+convertMemberToInteraction 
+} = require("speste-djs")
+```
+
+<div align="center">
+
+### Example for SpesteDB
+
+</div>
+
+```js
+
 ```
 
 
@@ -22,7 +45,6 @@ npm i speste-djs
 </div>
 
 ```js
-const { ProLogs } = require("speste-djs")
 
 const logger = new ProLogs()
 
@@ -33,20 +55,23 @@ logger.error("In elit mollit commodo magna.")
 
 
 //Underline with info
+
 logger.info( logger.underline("Fusce id velit ut tortor pretium") + " suspendisse potenti nullam." )
 
 
 //Italic without special log.
+
 const italic = logger.italic("Hello") + " world.";
 console.log(italic)
 
 
-
 //Bold without special log.
+
 const bold = logger.bold("Tellus molestie nunc") + " on blandit massa enim nec dui nunc..";
 console.log(bold)
 ```
-
+Ouput: <br>
+<img src="https://i.hizliresim.com/4rind9r.png" height= "120px" width= "500px" > </img> 
 
 <div align="center">
 
@@ -55,7 +80,6 @@ console.log(bold)
 </div>
 
 ```js
-const { ProEmbed } = require("speste-djs")
 
 const embed = new ProEmbed()
 
@@ -66,78 +90,26 @@ embed.setStatus("success")
 interaction.reply({ embeds: [ embed.getEmbed() ] })
 ```
 
+
 <div align="center">
 
-## Others..
+### Example for Random
 
 </div>
 
 ```js
-const { ValidChecker, Random, ConvertTurkishChars, convertMessageToInteraction, convertMemberToInteraction } = require("speste-djs")
-
-
-/* Convert Turkish chars to English chars.  */
-
-const converted = new ConvertTurkishChars()
-    .setString("Bugün hava çok güzel, dışarı çıkıp doğa yürüyüşü yapmayı düşünüyorum.")
-    .getConverted()
-console.log(converted) // Bugun hava cok guzel, disari cikip doga yuruyusu yapmayi dusunuyorum.
-
-
-
-/*  Valid Checker  */
-const validChecker = new ValidChecker()
-
-console.log(validChecker.checkEmail("example@gmail.com")) //true
-console.log(validChecker.checkEmail("example @gmail .com")) //false, because is not a valid.
-console.log(validChecker.checkEmail("Congue mauris rhoncus.")) // false
-
-
-
-
-/* Random */
-
-const arr = ["yellow", "red", "black", "white", "1", "2"] //...
+const arr = ["yellow", "red", "black", "white", "1", "2"] // ..
 
 const random = new Random()
     .setArray(arr)
     .getRandom()
 
-console.log(random) //A completely random answer...
-
-
-/* Convert your message or member object to interaction */
-/* In its normal state, ProEmbed does not support message and member objects. */
-
-//member to interaction
-
-client.on("guildMemberAdd", async (member) => {
-
-    const interaction = convertMemberToInteraction(member)
-
-    const embed = new ProEmbed()
-
-    embed.setInteraction(interaction)
-    embed.setDescription(`Welcome, ${member.user.username}`)
-    embed.setStatus("default")
-
-    member.send({ embeds: [embed.getEmbed()] })
-
-})
-
-// message to interaction
-
-client.on("messageCreate", async (message) => {
-
-    const interaction = convertMemberToInteraction(message)
-
-    const embed = new ProEmbed()
-
-    embed.setInteraction(interaction)
-    embed.setDescription(`Message sended. Content: ${message.content}`)
-    embed.setStatus("default")
-
-    message.channel.send({ embeds: [ embed.getEmbed() ] })
-
-})
+console.log(random);
 ```
+
+
+<div align="center">
+
+### Contact with developer: [Discord](https://discord.com/users/788725011955318784)
+
+</div>
