@@ -31,8 +31,8 @@ JSON.stringify(data),
 ) // Response
 
 const option = Option("inventory-item", "Please select an inventory item", OptionType.String, choices: [
-{ name: "Box", value: "box"  },
-{ name: "Sword", value: "sword"  },
+{ name: "Box", value: "box" },
+{ name: "Sword", value: "sword" },
 ])
 
 const embed = new ProEmbed()
