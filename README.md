@@ -24,11 +24,7 @@ const moneydata = db.get("user").money; // 300
 web.get(`https://example.com`) // Response
 const data = { userMoney: db.get("user").money }  // { userMoney: 300 }
 
-web.post(
-`https://example.com/api/newJoinUser`,
-JSON.stringify(data),
-"Content-Type": "application/json"
-) // Response
+web.post(`https://example.com/api/newJoinUser`, JSON.stringify(data), "Content-Type": "application/json") // Response
 
 const option = Option("inventory-item", "Please select an inventory item", OptionType.String, choices: [
 { name: "Box", value: "box" },
