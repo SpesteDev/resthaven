@@ -1,115 +1,50 @@
+<p align="center">
+  <img src="https://i.hizliresim.com/c0hz8n9.png" width="500px" />
+</p>
+<h4 align="center" >A module with many facilitators that you can use in your Discord.js bot 🥳</h1>
 
-<div align="center">
+## 🚀 Updates
+- ProWeb class added.
+- Option function added
 
-<img src="https://i.hizliresim.com/of5jlp4.png" height= "100px" width= "300px" > </img>
-
- A util package developed for Discord.js users 🎉
-
-<a href="https://www.npmjs.com/package/speste-djs"><img src="https://img.shields.io/npm/v/speste-djs.svg?maxAge=3600" alt="npm version" /></a>
-<a href="https://www.npmjs.com/package/speste-djs"><img src="https://img.shields.io/npm/dt/speste-djs.svg?maxAge=3600" alt="npm downloads" /></a>
-
-
-Installation
-
-```sh
-npm i speste-djs
-```
-
-Defines
-
-```sh
-const {
-SpesteDB,
-ProLogs, ProEmbed,
-ConvertTurkishChars, TDKGlossary, ValidChecker, Random,
-viewFile, ms,
-convertMemberToInteraction,
-convertMemberToInteraction 
-} = require("speste-djs")
-```
-
-<div align="center">
-
-### Example for SpesteDB
-
-</div>
-
+## 🏅 Five usage examples.
 ```js
+const { ProLogs, ProEmbed, EmbedStyle, ProWeb, SpesteDB, Option, OptionType } = require("resthaven");
 
-```
+const logger = new ProLogs();
+const web = new ProWeb();
+const db = new SpesteDB({ path: "./src/your-database-path.json" });
 
+logger.success("User game success worked.");
+logger.info("User joined the game.");
 
+db.set("user", { money: 300, inventory: ["Box"] }); // "user": { money: 300, inventory: ["Box"] }
+const moneydata = db.get("user").money; // 300
 
-## Example for ProLogs
+web.get(`https://example.com`) // Response
+const data = { userMoney: db.get("user").money }  // { userMoney: 300 }
 
-</div>
+web.post(
+`https://example.com/api/newJoinUser`,
+JSON.stringify(data),
+"Content-Type": "application/json"
+) // Response
 
-```js
-
-const logger = new ProLogs()
-
-logger.info("Exercitation commodo ea duis nulla officia duis culpa magna duis laboris ex.")
-logger.success("Nulla enim eiusmod nulla sint magna proident esse dolor.")
-logger.warning("Commodo anim proident qui ea excepteur ullamco eiusmod mollit laboris elit.")
-logger.error("In elit mollit commodo magna.")
-
-
-//Underline with info
-
-logger.info( logger.underline("Fusce id velit ut tortor pretium") + " suspendisse potenti nullam." )
-
-
-//Italic without special log.
-
-const italic = logger.italic("Hello") + " world.";
-console.log(italic)
-
-
-//Bold without special log.
-
-const bold = logger.bold("Tellus molestie nunc") + " on blandit massa enim nec dui nunc..";
-console.log(bold)
-```
-Ouput: <br>
-<img src="https://i.hizliresim.com/4rind9r.png" height= "120px" width= "500px" > </img> 
-
-<div align="center">
-
-## Example for ProEmbed
-
-</div>
-
-```js
+const option = Option("inventory-item", "Please select an inventory item", OptionType.String, choices: [
+{ name: "Box", value: "box"  },
+{ name: "Sword", value: "sword"  },
+])
 
 const embed = new ProEmbed()
+.setInteraction(<Interaction>) // Your interaction.
+.setTitle("User Info") // Optional
+.setDescription(`Money: ${moneydata}`) // Required
+.setThumbail("https://example.com/thumbailUrl") // Optional
+.setStatus(EmbedStyle.Default) // Required
 
-embed.setInteraction(interaction)
-embed.setDescription("Vitae elementum curabitur vitae nunc sed velit dignissim sodales.")
-embed.setStatus("success")
-
-interaction.reply({ embeds: [ embed.getEmbed() ] })
+<Interaction>.reply({ embeds: [embed.getEmbed()] }) // Reply
 ```
 
-
-<div align="center">
-
-### Example for Random
-
-</div>
-
-```js
-const arr = ["yellow", "red", "black", "white", "1", "2"] // ..
-
-const random = new Random()
-    .setArray(arr)
-    .getRandom()
-
-console.log(random);
-```
-
-
-<div align="center">
-
-### Contact with developer: [Discord](https://discord.com/users/788725011955318784)
-
-</div>
+## 🕷️ I found a bug!
+📱 You need contact me from
+[discord.](https://discord.com/users/788725011955318784)
